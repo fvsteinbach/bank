@@ -1,4 +1,4 @@
-def redAccountNumber():
+def readAccountNumber():
     accountList = []
     accountFile = open("accounts.txt", "r")
     for line in accountFile:
