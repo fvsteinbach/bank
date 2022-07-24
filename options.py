@@ -9,34 +9,34 @@ def read_account():
     return account_list
 
 
-def displayAccounts(accountsList):
-    for account in accountsList:
+def display_accounts(accounts_list):
+    for account in accounts_list:
         print(account["account_owner"])
 
 
-def addAccount(accountlist, account_owner, account_number, account_balance):
+def add_account(account_list, account_owner, account_number, account_balance):
     account = {"account_owner" : account_owner, "account_number" : account_number, "account_balance" : account_balance}
-    accountlist.append(account)
-    return accountlist
+    account_list.append(account)
+    return account_list
 
-def rem_account(accountList, account_owner):
+def rem_account(account_list, account_owner):
     index = 0
     removeIndex = -1
-    while index < len(accountList):
-        if accountList[index]["account_owner"] == account_owner:
-            removeIndex = index
-            index = len(accountList)
+    while index < len(account_list):
+        if account_list[index]["account_owner"] == account_owner:
+            remove_index = index
+            index = len(account_list)
         index = index + 1
-    if removeIndex >= 0:
-        del(accountList[removeIndex])
-    return accountList
+    if remove_index >= 0:
+        del(account_list[remove_index])
+    return account_list
 
 
-def saveAccount(accountList):
-    accountFile = open("accounts.txt", "a")
-    for account in accountList:
-        print(account["account_owner"], account["account_number"], account["account_balance"], sep=",", file=accountFile)
-    accountFile.close()
+def save_account(account_list):
+    account_file = open("accounts.txt", "a")
+    for account in account_list:
+        print(account["account_owner"], account["account_number"], account["account_balance"], sep=",", file=account_file)
+    account_file.close()
 
 
 def menu():
@@ -50,12 +50,12 @@ def menu():
 
 
 def run():
-    runProgram = True
-    accountList = []
+    run_program = True
+    account_list = []
     menu()
     print("\nList is empty by default, to load accounts select option 5")
-    while runProgram is True:
-        invalidOption = False
+    while run_program is True:
+        invalid_option = False
         option = input("\nSelect a menu option: ")
         if option.isdigit():
             option = int(option)
@@ -64,24 +64,24 @@ def run():
                 runProgram = False
                 print("Goodbye!")
             elif option == 1:
-                displayAccounts(accountList)
+                display_accounts(account_list)
             elif option == 2:
                 name = input("Who's the owner of the account? ")
                 number = input("Enter the " + name + "'s account number: ")
                 balance = input("What's the balance of the account? ")
-                addAccount(accountList, name, number, balance)
+                add_account(account_list, name, number, balance)
             elif option == 3:
                 name = input("Enter the name of the account you want to remove")
-                rem_account(accountList, name)
+                rem_account(account_list, name)
             elif option == 4:
-                saveAccount(accountList)
+                save_account(accountList)
             elif option == 5:
-                accountList = readAccount()
+                accountList = read_account()
             elif option == 6:
                 menu()
             else:
-                invalidOption = True
-            if invalidOption:
+                invalid_option = True
+            if invalid_option:
                 print("Invalid Option")
 
 run()
