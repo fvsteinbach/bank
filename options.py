@@ -11,7 +11,7 @@ def readAccount():
 
 def displayAccounts(accountsList):
     for account in accountsList:
-        print(account["account_number"])
+        print(account["account_owner"])
 
 
 def addAccount(accountlist, account_owner, account_number, account_balance):
