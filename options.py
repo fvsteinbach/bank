@@ -1,12 +1,12 @@
-def readAccount():
-    accountList = []
-    accountFile = open("accounts.txt", "r")
-    for line in accountFile:
+def read_account():
+    account_list = []
+    account_file = open("accounts.txt", "r")
+    for line in account_file:
         line = line.rstrip("\n")
         line = line.split(",")
-        accountList.append({"account_owner" : line[0], "account_number" : line[1], "account_balance" : line[2]})
-    accountFile.close()
-    return accountList
+        account_list.append({"account_owner" : line[0], "account_number" : line[1], "account_balance" : line[2]})
+    account_file.close()
+    return account_list
 
 
 def displayAccounts(accountsList):
