@@ -74,9 +74,9 @@ def run():
                 name = input("Enter the name of the account you want to remove")
                 rem_account(account_list, name)
             elif option == 4:
-                save_account(accountList)
+                save_account(account_list)
             elif option == 5:
-                accountList = read_account()
+                account_list = read_account()
             elif option == 6:
                 menu()
             else:
