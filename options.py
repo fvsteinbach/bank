@@ -21,7 +21,7 @@ def add_account(account_list, account_owner, account_number, account_balance):
 
 def rem_account(account_list, account_owner):
     index = 0
-    removeIndex = -1
+    remove_index = -1
     while index < len(account_list):
         if account_list[index]["account_owner"] == account_owner:
             remove_index = index
