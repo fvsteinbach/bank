@@ -4,8 +4,8 @@ def get_all():
         line = accounts.readline()
         while (line != ''):
             line = line.strip('\n').split(',')
-            account_owner = int(line[0])
-            account_number = line[1]
+            account_owner = line[0]
+            account_number = int(line[1])
             account_balance = float(line[2])
             account = [account_owner, account_number, account_balance]
             account.append(account)
