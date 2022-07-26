@@ -1,3 +1,24 @@
+def get_all():
+    account_list = []
+    with open("accounts.txt", "r") as accounts:
+        line = accounts.readline()
+        while (line != ''):
+            line = line.strip('\n').split(',')
+            account_owner = int(line[0])
+            account_number = line[1]
+            account_balance = float(line[2])
+            account = [account_owner, account_number, account_balance]
+            account.append(account)
+            line = accounts.readline()
+    return account_list
+
+
+def save_all(list):
+    with open('accounts.txt', 'w') as accounts:
+        for account in list:
+            accounts.write(f'{int(account[0])};{account[1]};{account[2]} \n')
+
+
 def read_account():
     account_list = []
     with open ("accounts.txt", "r") as account_file:
@@ -18,10 +39,11 @@ def add_account(account_list, account_owner, account_number, account_balance):
     account_list.append(account)
     return account_list
 
-def rem_account(account_list, account_owner):
-    while len(account_list) > 0:
-        if account_list[0]["account_owner"] == account_owner:
-            del(account_list[0])
+
+def rem_account(account_list, account_number):
+    for i in range(len(account_list)):
+        if account_list[i]['account_number'] in account_list:
+            del account_list[i]
     return account_list
 
 
@@ -54,20 +76,20 @@ def run():
             option = int(option)
 
             if option == 0:
-                runProgram = False
+                run_program = False
                 print("Goodbye!")
             elif option == 1:
-                display_accounts(account_list)
+                get_all()
             elif option == 2:
                 name = input("Who's the owner of the account? ")
                 number = input("Enter the " + name + "'s account number: ")
                 balance = input("What's the balance of the account? ")
                 add_account(account_list, name, number, balance)
             elif option == 3:
-                name = input("Enter the name of the account you want to remove: ")
+                name = input("Enter the number of the account you want to remove: ")
                 rem_account(account_list, name)
             elif option == 4:
-                save_account(account_list)
+                save_all(account_list)
             elif option == 5:
                 account_list = read_account()
             elif option == 6:
@@ -76,5 +98,6 @@ def run():
                 invalid_option = True
             if invalid_option:
                 print("Invalid Option")
+
 
 run()
