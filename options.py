@@ -80,6 +80,7 @@ def run():
                 print("Goodbye!")
             elif option == 1:
                 get_all()
+                print(f'{account_list}')
             elif option == 2:
                 name = input("Who's the owner of the account? ")
                 number = input("Enter the " + name + "'s account number: ")
