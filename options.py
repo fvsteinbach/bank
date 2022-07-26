@@ -19,16 +19,6 @@ def save_all(list):
             accounts.write(f'{int(account[0])};{account[1]};{account[2]} \n')
 
 
-def read_account():
-    account_list = []
-    with open ("accounts.txt", "r") as account_file:
-        for line in account_file:
-            line = line.rstrip("\n")
-            line = line.split(",")
-            account_list.append({"account_owner" : line[0], "account_number" : line[1], "account_balance" : line[2]})
-    return account_list
-
-
 def display_accounts(accounts_list):
     for account in accounts_list:
         print(account["account_owner"])
@@ -79,8 +69,7 @@ def run():
                 run_program = False
                 print("Goodbye!")
             elif option == 1:
-                get_all()
-                print(f'{account_list}')
+                display_accounts()
             elif option == 2:
                 name = input("Who's the owner of the account? ")
                 number = input("Enter the " + name + "'s account number: ")
