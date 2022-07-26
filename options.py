@@ -19,15 +19,9 @@ def add_account(account_list, account_owner, account_number, account_balance):
     return account_list
 
 def rem_account(account_list, account_owner):
-    index = 0
-    remove_index = -1
-    while index < len(account_list):
-        if account_list[index]["account_owner"] == account_owner:
-            remove_index = index
-            index = len(account_list)
-        index = index + 1
-    if remove_index >= 0:
-        del(account_list[remove_index])
+    while len(account_list) > 0:
+        if account_list[0]["account_owner"] == account_owner:
+            del(account_list[0])
     return account_list
 
 
@@ -70,7 +64,7 @@ def run():
                 balance = input("What's the balance of the account? ")
                 add_account(account_list, name, number, balance)
             elif option == 3:
-                name = input("Enter the name of the account you want to remove")
+                name = input("Enter the name of the account you want to remove: ")
                 rem_account(account_list, name)
             elif option == 4:
                 save_account(account_list)
