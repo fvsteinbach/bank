@@ -13,15 +13,16 @@ def get_all():
     return account_list
 
 
-def save_all(list):
-    with open('accounts.txt', 'w') as accounts:
-        for account in list:
-            accounts.write(f'{int(account[0])};{account[1]};{account[2]} \n')
+def save_all(list): 
+    with open('accounts.txt', 'w') as accounts: 
+        for account in list: 
+            accounts.write(f'{int(account[0])};{account[1]};{float(account[2])}\n')
 
 
-def display_accounts(accounts_list):
-    for account in accounts_list:
-        print(account["account_owner"])
+
+def display_accounts(account_list):
+    for account in account_list:
+        print(account[1])
 
 
 def add_account(account_list, account_owner, account_number, account_balance):
@@ -30,18 +31,11 @@ def add_account(account_list, account_owner, account_number, account_balance):
     return account_list
 
 
-def rem_account(account_list, account_number):
+def rem_account(account_list):
     for i in range(len(account_list)):
-        if account_list[i]['account_number'] in account_list:
+        if account_list[i][1] in account_list:
             del account_list[i]
     return account_list
-
-
-def save_account(account_list):
-    account_file = open("accounts.txt", "a")
-    for account in account_list:
-        print(account["account_owner"], account["account_number"], account["account_balance"], sep=",", file=account_file)
-    account_file.close()
 
 
 def menu():
@@ -56,7 +50,6 @@ def menu():
 
 def run():
     run_program = True
-    account_list = []
     menu()
     print("\nList is empty by default, to load accounts select option 5")
     while run_program is True:
@@ -69,7 +62,7 @@ def run():
                 run_program = False
                 print("Goodbye!")
             elif option == 1:
-                display_accounts()
+                display_accounts(account_list)
             elif option == 2:
                 name = input("Who's the owner of the account? ")
                 number = input("Enter the " + name + "'s account number: ")
@@ -81,7 +74,7 @@ def run():
             elif option == 4:
                 save_all(account_list)
             elif option == 5:
-                account_list = read_account()
+                account_list = get_all()
             elif option == 6:
                 menu()
             else:
