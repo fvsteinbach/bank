@@ -1,6 +1,3 @@
-from os import sep
-
-
 account_list = []
 
 def get_all():
@@ -8,7 +5,7 @@ def get_all():
     with open('accounts.txt', 'r') as accounts:
         line = accounts.readline()
         while (line != ''):
-            line = line.strip(',').split(';')
+            line = line.strip('\n').split(';')
             account_owner = line[0]
             account_number = int(line[1])
             account_balance = float(line[2])
@@ -18,15 +15,13 @@ def get_all():
     return account_list
 
 
-def save_all(list):
+def save_all(account_list):
     with open('accounts.txt', 'w') as accounts:
-        for account in list:
-            accounts.write(f'{account[0]}; {int(account[1])}; {float(account[2])}')
+        for account in account_list:
+            accounts.write(f'{account[0]}; {int(account[1])}; {float(account[2])}\n')
 
 def add_account(account_list):
-    save_all(account_list)
-    with open('accounts.txt', 'a') as accounts:
-        account_list = get_all()
+    with open('accounts.txt', 'w') as accounts:
         account_owner = str(input("What your full name? "))
         account_number = int(input('What account number you want? '))
         account_balance = float(input('How much will be your first deposit? '))
