@@ -25,15 +25,16 @@ def save_all(list):
 
 def add_account(account_list):
     save_all(account_list)
-    with open('accounts.txt', 'w') as accounts:
+    with open('accounts.txt', 'a') as accounts:
         account_list = get_all()
         account_owner = str(input("What your full name? "))
         account_number = int(input('What account number you want? '))
         account_balance = float(input('How much will be your first deposit? '))
         new_account = [account_owner, account_number,  account_balance]
         account_list.append(new_account)
+        print(account_list)
         for account in account_list:
-            accounts.write(f'{account[0]}, {int(account[1])}, {float(account[2])}')
+            accounts.append(f'{account[0]}, {int(account[1])}, {float(account[2])}')
     return account_list
 
 def display_accounts(account_list):
