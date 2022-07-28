@@ -5,7 +5,7 @@ def get_all():
     with open('accounts.txt', 'r') as accounts:
         line = accounts.readline()
         while (line != ''):
-            line = line.strip('\n').split(';')
+            line = line.strip('\n').split(',')
             account_owner = line[0]
             account_number = int(line[1])
             account_balance = float(line[2])
@@ -20,7 +20,7 @@ def save_all(list):
         for account in list:
             accounts.write(f'{account[0]}, {int(account[1])}, {float(account[2])}')
 
-def add_account():
+def add_account(account_list):
     with open('accounts.txt', 'a') as accounts:
         account_owner = str(input("What your full name? "))
         account_number = int(input('What account number you want? '))
@@ -48,13 +48,12 @@ def run():
     menu()
     print("\nList is empty by default, to load accounts select option 5")
     while True:
-        invalid_option = False
         option = input("\nSelect a menu option: ")
         if option.isdigit():
             option = int(option)
 
             if option == 0:
-                save_all()
+                save_all(account_list)
                 print("Goodbye!")
                 break
             elif option == 1:
@@ -67,9 +66,7 @@ def run():
                 menu()
             elif option == 5:
                 add_account(account_list)
-            else:
-                invalid_option = True
-            if invalid_option:
-                print("Invalid Option")
-
+            if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5:
+                print("\nInvalid Option\n")
+                menu()
 run()

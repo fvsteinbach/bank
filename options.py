@@ -26,7 +26,7 @@ def display_accounts(account_list):
 
 
 def add_account(account_list, account_owner, account_number, account_balance):
-    account = {"account_owner" : account_owner, "account_number" : account_number, "account_balance" : account_balance}
+    account = (account_owner,account_number,account_balance)
     account_list.append(account)
     return account_list
 
