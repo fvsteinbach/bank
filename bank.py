@@ -33,8 +33,7 @@ def add_account(account_list):
         new_account = [account_owner, account_number,  account_balance]
         account_list.append(new_account)
         print(account_list)
-        for account in account_list:
-            accounts.append(f'{account[0]}, {int(account[1])}, {float(account[2])}')
+        save_all(account_list)
     return account_list
 
 def display_accounts(account_list):
