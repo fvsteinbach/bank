@@ -1,1 +1,1 @@
-ererea, 3, 26565.0fernando, 2, 3232.0
+ererea; 3; 26565.0fernando; 323232; 221.0

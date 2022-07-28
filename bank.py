@@ -8,7 +8,7 @@ def get_all():
     with open('accounts.txt', 'r') as accounts:
         line = accounts.readline()
         while (line != ''):
-            line = line.strip('\n').split(',')
+            line = line.strip(',').split(';')
             account_owner = line[0]
             account_number = int(line[1])
             account_balance = float(line[2])
@@ -21,7 +21,7 @@ def get_all():
 def save_all(list):
     with open('accounts.txt', 'w') as accounts:
         for account in list:
-            accounts.write(f'{account[0]}, {int(account[1])}, {float(account[2])}')
+            accounts.write(f'{account[0]}; {int(account[1])}; {float(account[2])}')
 
 def add_account(account_list):
     save_all(account_list)
