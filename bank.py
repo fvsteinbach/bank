@@ -20,16 +20,31 @@ def save_all(account_list):
         for account in account_list:
             accounts.write(f'{account[0]}; {int(account[1])}; {float(account[2])}\n')
 
-def add_account(account_list):
-    with open('accounts.txt', 'w') as accounts:
-        account_owner = str(input("What your full name? "))
-        account_number = int(input('What account number you want? '))
-        account_balance = float(input('How much will be your first deposit? '))
-        new_account = [account_owner, account_number,  account_balance]
-        account_list.append(new_account)
-        print(account_list)
-        save_all(account_list)
+'''def add_account(account_list):
+    account_owner = str(input("What your full name? "))
+    account_number = int(input('What account number you want? '))
+    account_balance = float(input('How much will be your first deposit? '))
+    new_account = [account_owner, account_number,  account_balance]
+    account_list.append(new_account)
+    print(account_list)
+    save_all(account_list)
+    return account_list'''
+
+def find_acc(account_list):
+    acc_number = int(input('Type in the account number? '))
+    index = 0
+    for account in account_list:
+        if acc_number in account:
+            index 
+
+def remove_account(account_list):
+    print(account_list)
+    account_rem = int(input('What account you want to remove? '))
+    for account in account_list:
+        if account[1] == account_rem:
+            del(account)
     return account_list
+
 
 def display_accounts(account_list):
     for account in account_list:
@@ -62,6 +77,8 @@ def run():
                 display_accounts(account_list)
             elif option == 2:
                 add_account(account_list)
+            elif option == 3:
+                remove_account(account_list)
             elif option == 4:
                 save_all(account_list)
             elif option == 5:
