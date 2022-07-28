@@ -54,22 +54,21 @@ def run():
         option = input("\nSelect a menu option: ")
         if option.isdigit():
             option = int(option)
-
             if option == 0:
                 save_all(account_list)
                 print("Goodbye!")
                 break
             elif option == 1:
                 display_accounts(account_list)
+            elif option == 2:
+                add_account(account_list)
             elif option == 4:
                 save_all(account_list)
             elif option == 5:
                 account_list = get_all()
-            elif option == 4:
+            elif option == 6:
                 menu()
-            elif option == 2:
-                add_account(account_list)
-            if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5:
+            if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5 and option != 6:
                 print("\nInvalid Option\n")
                 menu()
 run()
