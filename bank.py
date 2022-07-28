@@ -1,3 +1,6 @@
+from os import sep
+
+
 account_list = []
 
 def get_all():
@@ -21,16 +24,21 @@ def save_all(list):
             accounts.write(f'{account[0]}, {int(account[1])}, {float(account[2])}')
 
 def add_account(account_list):
-    with open('accounts.txt', 'a') as accounts:
+    save_all(account_list)
+    with open('accounts.txt', 'w') as accounts:
+        account_list = get_all()
         account_owner = str(input("What your full name? "))
         account_number = int(input('What account number you want? '))
         account_balance = float(input('How much will be your first deposit? '))
-        accounts.append(account_owner, account_number, account_balance, end = ',')
+        new_account = [account_owner, account_number,  account_balance]
+        account_list.append(new_account)
+        for account in account_list:
+            accounts.write(f'{account[0]}, {int(account[1])}, {float(account[2])}')
     return account_list
 
 def display_accounts(account_list):
     for account in account_list:
-        print(f'O número da conta é: {account[1]}')
+        print(f'The account number is: {account[1]}')
 
 def menu():
     print("0 - Exit")
@@ -58,13 +66,13 @@ def run():
                 break
             elif option == 1:
                 display_accounts(account_list)
-            elif option == 2:
+            elif option == 4:
                 save_all(account_list)
-            elif option == 3:
+            elif option == 5:
                 account_list = get_all()
             elif option == 4:
                 menu()
-            elif option == 5:
+            elif option == 2:
                 add_account(account_list)
             if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5:
                 print("\nInvalid Option\n")
