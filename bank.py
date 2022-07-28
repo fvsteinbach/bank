@@ -20,6 +20,13 @@ def save_all(list):
         for account in list:
             accounts.write(f'{account[0]}, {int(account[1])}, {float(account[2])}')
 
+def add_account():
+    with open('accounts.txt', 'a') as accounts:
+        account_owner = str(input("What your full name? "))
+        account_number = int(input('What account number you want? '))
+        account_balance = float(input('How much will be your first deposit? '))
+        accounts.append(account_owner, account_number, account_balance, end = ',')
+    return account_list
 
 def display_accounts(account_list):
     for account in account_list:
@@ -58,6 +65,8 @@ def run():
                 account_list = get_all()
             elif option == 4:
                 menu()
+            elif option == 5:
+                add_account(account_list)
             else:
                 invalid_option = True
             if invalid_option:
