@@ -72,21 +72,46 @@ def get_balance(account_list):
     return balance
 
 
+def get_operation():
+    operation = int(input("0 to get back to menu - 1 to make a withdraw - 2 to make a deposit:\n "))
+    return operation
+
+
+def get_withdraw():
+    withdraw = float(input("How much do you want to withdraw? "))
+    return withdraw
+
+
+def get_deposit():
+    deposit = int(input("How much do you want to deposit? "))
+    return deposit
+
+
 def change_balance(account_list):
     index = get_index(account_list)
-    operation = int(input("0 to get back to menu: \n1 to make a withdraw: \n2 to make a deposit: "))
+    operation = get_operation()
+    account = account_list[index]
     if operation == 0:
         menu()
     if operation == 1:
         balance = get_balance(account_list)
-        withdraw = float(input("How much do you want to withdraw? "))
+        withdraw = get_withdraw()
         if withdraw < balance:
             new_balance = balance - withdraw
-            account = account_list[index]
             account.pop(2)
             account.insert(2, new_balance)
             print(account)
             return account_list
+    if operation == 2:
+        balance = get_balance(account_list)
+        deposit = get_deposit()
+        new_balance = balance + deposit
+        account.pop(2)
+        account.insert(2, new_balance)
+        print(account)
+        return account_list
+    print('Invalid option, Try Again')
+    operation = get_operation()
 
 
 def menu():
