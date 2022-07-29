@@ -97,21 +97,30 @@ def change_balance(account_list):
         balance = get_balance(account_list)
         withdraw = get_withdraw()
         if withdraw < balance:
-            new_balance = balance - withdraw
-            account.pop(2)
-            account.insert(2, new_balance)
-            print(account)
+            make_withdraw(balance, withdraw, account)
             return account_list
     if operation == 2:
-        balance = get_balance(account_list)
-        deposit = get_deposit()
-        new_balance = balance + deposit
-        account.pop(2)
-        account.insert(2, new_balance)
-        print(account)
+        make_deposit(account)
         return account_list
     print('Invalid option, Try Again')
     operation = get_operation()
+
+
+def make_deposit(account):
+    balance = get_balance(account_list)
+    deposit = get_deposit()
+    new_balance = balance + deposit
+    account.pop(2)
+    account.insert(2, new_balance)
+    print(account)
+    return account_list
+
+def make_withdraw(balance, withdraw, account):
+    new_balance = balance - withdraw
+    account.pop(2)
+    account.insert(2, new_balance)
+    print(account)
+    return account_list
 
 
 def menu():

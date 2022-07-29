@@ -1,5 +1,4 @@
 fernando vinicius; 2; 22.0
 fernando steinbach; 23; 1.0
 luis miguel; 55; 23.0
-eduardo schlemper faria; 13; 655555.0
-leonardo laguna; 10; 10000005000.0
+eduardo schlemper faria; 13; 655355.0
