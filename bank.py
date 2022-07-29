@@ -1,5 +1,4 @@
 account_list = []
-acc_index = 0
 
 def get_all():
     account_list = []
@@ -54,15 +53,40 @@ def get_number():
     acc_number = int(input('Enter the Account Number or Press 0 to go back to menu: '))
     return acc_number
 
+
 def get_index(account_list):
     index = 0
     acc_number = get_number()
     for account in account_list:
         if account[1] == acc_number:
-            print(account_list[index])
             return index
         index += 1
     return -1
+
+
+def get_balance(account_list):
+    index = get_index(account_list)
+    account = account_list[index]
+    balance = account[2]
+    print(f"Your balance is U$D{balance} Sr. {account[0]}")
+    return balance
+
+
+def change_balance(account_list):
+    index = get_index(account_list)
+    operation = int(input("0 to get back to menu: \n1 to make a withdraw: \n2 to make a deposit: "))
+    if operation == 0:
+        menu()
+    if operation == 1:
+        balance = get_balance(account_list)
+        withdraw = float(input("How much do you want to withdraw? "))
+        if withdraw < balance:
+            new_balance = balance - withdraw
+            account = account_list[index]
+            account.pop(2)
+            account.insert(2, new_balance)
+            print(account)
+            return account_list
 
 
 def menu():
@@ -95,9 +119,9 @@ def run():
             elif option == 3:
                 remove_account(account_list)
             elif option == 4:
-                index(account_list)
+                change_balance(account_list)
             elif option == 5:
-                account_list = get_all()
+                get_balance(account_list)
             elif option == 6:
                 menu()
             if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5 and option != 6:
