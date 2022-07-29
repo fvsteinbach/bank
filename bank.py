@@ -56,7 +56,7 @@ def menu():
     print("1 - Display accounts owners")
     print("2 - Add account")
     print("3 - Remove account by number")
-    print("4 - Save account information to file")
+    print("4 - Change balance")
     print("5 - Load student information from file")
     print("6 - Display menu")
 
@@ -81,7 +81,7 @@ def run():
             elif option == 3:
                 remove_account(account_list)
             elif option == 4:
-                save_all(account_list)
+                change_balance(account_list)
             elif option == 5:
                 account_list = get_all()
             elif option == 6:
