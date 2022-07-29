@@ -46,29 +46,29 @@ def add_account(account_list):
 
 def remove_account(account_list):
     index = 0
-    print(account_list)
-    account_rem = int(input('What account you want to remove? '))
+    acc_number = get_number()
     while index < len(account_list):
         for account in account_list:
-            if account_rem in account:
+            if acc_number in account:
                 del(account_list[index])
             index = index + 1
     save_all(account_list)
     return account_list
 
 
-'''def find_index(account_list):
-    acc_index = 0
-    account_number = int(input("Type in the account number: "))
+def get_number():
+    acc_number = int(input('Enter the Account Number or Press 0 to go back to menu: '))
+    return acc_number
+
+def index(account_list):
     index = 0
-    while index < len(account_list):
-        for account in account_list:
-            if account_number in account:
-                acc_index = account_list.index(account)
-                break
-        index = index + 1
-    print(acc_index)
-    return acc_index'''           
+    acc_number = get_number()
+    for account in account_list:
+        if account[1] == acc_number:
+            print(account_list[index])
+            return index
+        index += 1
+    return -1
 
 
 def menu():
@@ -101,7 +101,7 @@ def run():
             elif option == 3:
                 remove_account(account_list)
             elif option == 4:
-                find_index(account_list)
+                index(account_list)
             elif option == 5:
                 account_list = get_all()
             elif option == 6:
