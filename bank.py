@@ -20,6 +20,7 @@ def save_all(account_list):
         for account in account_list:
             accounts.write(f'{account[0]}; {int(account[1])}; {float(account[2])}\n')
 
+
 def add_account(account_list):
     account_owner = str(input("What your full name? "))
     account_number = int(input('What account number you want? '))
@@ -29,6 +30,7 @@ def add_account(account_list):
     print(account_list)
     save_all(account_list)
     return account_list
+
 
 def remove_account(account_list):
     index = 0
@@ -47,6 +49,7 @@ def remove_account(account_list):
 def display_accounts(account_list):
     for account in account_list:
         print(f'The account number is: {account[1]}')
+
 
 def menu():
     print("0 - Exit")
@@ -86,4 +89,6 @@ def run():
             if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5 and option != 6:
                 print("\nInvalid Option\n")
                 menu()
+
+
 run()
