@@ -39,19 +39,13 @@ def add_account(account_list):
         account_balance = float(input('How musch will be your first deposit? '))
     new_account = [account_owner, account_number,  account_balance]
     account_list.append(new_account)
-    print(account_list)
     save_all(account_list)
     return account_list
 
 
 def remove_account(account_list):
-    index = 0
-    acc_number = get_number()
-    while index < len(account_list):
-        for account in account_list:
-            if acc_number in account:
-                del(account_list[index])
-            index = index + 1
+    index = get_index(account_list)
+    del(account_list[index])
     save_all(account_list)
     return account_list
 
@@ -60,7 +54,7 @@ def get_number():
     acc_number = int(input('Enter the Account Number or Press 0 to go back to menu: '))
     return acc_number
 
-def index(account_list):
+def get_index(account_list):
     index = 0
     acc_number = get_number()
     for account in account_list:
