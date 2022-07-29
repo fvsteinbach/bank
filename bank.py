@@ -1,4 +1,5 @@
 account_list = []
+acc_index = 0
 
 def get_all():
     account_list = []
@@ -15,6 +16,11 @@ def get_all():
     return account_list
 
 
+def display_accounts(account_list):
+    for account in account_list:
+        print(f'The account number is: {account[1]}')
+
+
 def save_all(account_list):
     with open('accounts.txt', 'w') as accounts:
         for account in account_list:
@@ -23,8 +29,14 @@ def save_all(account_list):
 
 def add_account(account_list):
     account_owner = str(input("What your full name? "))
+    if ' ' not in account_owner:
+        print('We need your first and second name, try again')
+        account_owner = str(input("What's your full name? ")).strip()
     account_number = int(input('What account number you want? '))
     account_balance = float(input('How much will be your first deposit? '))
+    if account_balance < 0:
+        print('Your first deposit must be more than U$0')
+        account_balance = float(input('How musch will be your first deposit? '))
     new_account = [account_owner, account_number,  account_balance]
     account_list.append(new_account)
     print(account_list)
@@ -39,16 +51,24 @@ def remove_account(account_list):
     while index < len(account_list):
         for account in account_list:
             if account_rem in account:
-                print(account)
                 del(account_list[index])
-                print(account_list)
             index = index + 1
+    save_all(account_list)
     return account_list
 
 
-def display_accounts(account_list):
-    for account in account_list:
-        print(f'The account number is: {account[1]}')
+'''def find_index(account_list):
+    acc_index = 0
+    account_number = int(input("Type in the account number: "))
+    index = 0
+    while index < len(account_list):
+        for account in account_list:
+            if account_number in account:
+                acc_index = account_list.index(account)
+                break
+        index = index + 1
+    print(acc_index)
+    return acc_index'''           
 
 
 def menu():
@@ -81,7 +101,7 @@ def run():
             elif option == 3:
                 remove_account(account_list)
             elif option == 4:
-                change_balance(account_list)
+                find_index(account_list)
             elif option == 5:
                 account_list = get_all()
             elif option == 6:
