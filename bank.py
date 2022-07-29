@@ -20,7 +20,7 @@ def save_all(account_list):
         for account in account_list:
             accounts.write(f'{account[0]}; {int(account[1])}; {float(account[2])}\n')
 
-'''def add_account(account_list):
+def add_account(account_list):
     account_owner = str(input("What your full name? "))
     account_number = int(input('What account number you want? '))
     account_balance = float(input('How much will be your first deposit? '))
@@ -28,21 +28,19 @@ def save_all(account_list):
     account_list.append(new_account)
     print(account_list)
     save_all(account_list)
-    return account_list'''
-
-def find_acc(account_list):
-    acc_number = int(input('Type in the account number? '))
-    index = 0
-    for account in account_list:
-        if acc_number in account:
-            index 
+    return account_list
 
 def remove_account(account_list):
+    index = 0
     print(account_list)
     account_rem = int(input('What account you want to remove? '))
-    for account in account_list:
-        if account[1] == account_rem:
-            del(account)
+    while index < len(account_list):
+        for account in account_list:
+            if account_rem in account:
+                print(account)
+                del(account_list[index])
+                print(account_list)
+            index = index + 1
     return account_list
 
 

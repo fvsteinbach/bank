@@ -1,6 +1,6 @@
 ferandno; 3232; 2.0
-eoriaoia; 32994; 2943.0
 luis; 1; 2.0
 fernando; 2221123; 43.0
 luis miguel silva amorim; 2; 32131.0
 andre; 32312; 321321.0
+fernando; 22; 23321.0
