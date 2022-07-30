@@ -27,7 +27,7 @@ def save_all(account_list):
 
 
 def add_account(account_list):
-    account_owner = str(input("What your full name? "))
+    account_owner = str(input("What is your full name? "))
     if ' ' not in account_owner:
         print('We need your first and second name, try again')
         account_owner = str(input("What's your full name? ")).strip()
@@ -137,7 +137,6 @@ def run():
     frango = get_all()
     account_list = frango
     menu()
-    print("\nList is empty by default, to load accounts select option 5")
     while True:
         option = input("\nSelect a menu option: ")
         if option.isdigit():
