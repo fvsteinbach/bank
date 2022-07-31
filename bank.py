@@ -58,9 +58,13 @@ def get_acc_numbers(account_list):
 
 
 def remove_account(account_list):
-    index = get_index(account_list)
-    del(account_list[index])
-    save_all(account_list)
+    while True:
+        index = get_index(account_list)
+        if index != -1:
+            del(account_list[index])
+            print('Account deleted')
+            break
+        print('Account not found, try again!')
     return account_list
 
 

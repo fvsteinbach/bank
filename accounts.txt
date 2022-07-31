@@ -1,7 +1,3 @@
 fernando vinicius; 2; 22.0
-fernando steinbach; 23; 1.0
-luis miguel; 55; 23.0
 vinicius de andrade; 9872; 32.0
 danille cardoso; 321; 3213.0
-vin huddrel; 22; 0.0
-fer; 123131231; 231.0
