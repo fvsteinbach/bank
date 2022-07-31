@@ -38,13 +38,13 @@ def add_account(account_list):
         if account_number not in acc_numbers:
             break
         print("This account in already being used, please try again!")
-    account_balance = float(input('How much will be your first deposit? '))
-    if account_balance < 0:
+    while True:
+        account_balance = float(input('How much will be your first deposit? '))
+        if account_balance > 0:
+            break
         print('Your first deposit must be more than U$0')
-        account_balance = float(input('How musch will be your first deposit? '))
     new_account = [account_owner, account_number,  account_balance]
     account_list.append(new_account)
-    save_all(account_list)
     return account_list
 
 

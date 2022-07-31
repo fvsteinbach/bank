@@ -3,3 +3,4 @@ vinicius de andrade; 9872; 32.0
 danille cardoso; 321; 3213.0
 fernando steinbach; 23; 0.0
 luis migue; 10; 232.0
+t rex; 400; 12.0
