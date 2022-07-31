@@ -32,6 +32,10 @@ def add_account(account_list):
         print('We need your first and second name, try again')
         account_owner = str(input("What's your full name? ")).strip()
     account_number = int(input('What account number you want? '))
+    acc_numbers = get_acc_numbers(account_list)
+    while account_number in acc_numbers:
+        print("This account in already being used, please try again!")
+        account_number = int(input('What account number you want? '))
     account_balance = float(input('How much will be your first deposit? '))
     if account_balance < 0:
         print('Your first deposit must be more than U$0')
@@ -40,6 +44,14 @@ def add_account(account_list):
     account_list.append(new_account)
     save_all(account_list)
     return account_list
+
+
+def get_acc_numbers(account_list):
+    acc_numbers = []
+    for account in account_list:
+        acc_numbers.append(int(account[1]))
+    print(acc_numbers)
+    return acc_numbers
 
 
 def remove_account(account_list):
@@ -157,7 +169,9 @@ def run():
                 get_balance(account_list)
             elif option == 6:
                 menu()
-            if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5 and option != 6:
+            elif option == 7:
+                get_acc_numbers(account_list)
+            if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5 and option != 6 and option != 7 and option != 8:
                 print("\nInvalid Option\n")
                 menu()
 
