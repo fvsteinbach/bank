@@ -27,18 +27,17 @@ def save_all(account_list):
 
 
 def add_account(account_list):
-    account_owner = str(input("What is your full name? ")).strip()
     while True:
-        if ' ' not in account_owner:
-            print('We need your first and second name, try again')
-            account_owner = str(input("What's your full name? ")).strip()
+        account_owner = str(input("What is your full name? ")).strip()
         if ' ' in account_owner:
             break
-    account_number = int(input('What account number you want? '))
-    acc_numbers = get_acc_numbers(account_list)
-    while account_number in acc_numbers:
-        print("This account in already being used, please try again!")
+        print('We need your first and second name, try again')
+    while True:
         account_number = int(input('What account number you want? '))
+        acc_numbers = get_acc_numbers(account_list)
+        if account_number not in acc_numbers:
+            break
+        print("This account in already being used, please try again!")
     account_balance = float(input('How much will be your first deposit? '))
     if account_balance < 0:
         print('Your first deposit must be more than U$0')
