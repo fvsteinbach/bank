@@ -83,11 +83,14 @@ def get_index(account_list):
 
 
 def get_balance(account_list):
-    index = get_index(account_list)
-    account = account_list[index]
-    balance = account[2]
-    print(f"Your balance is U$D{balance} Sr. {account[0]}")
-    return balance
+    while True:
+        index = get_index(account_list)
+        if index != -1:
+            account = account_list[index]
+            balance = account[2]
+            print(f"Your balance is U$D{balance} Sr. {account[0]}")
+            return balance
+        print('Invalid account, try again!')
 
 
 def get_operation():
@@ -152,7 +155,7 @@ def menu():
     print("2 - Add account")
     print("3 - Remove account by number")
     print("4 - Change balance")
-    print("5 - Load student information from file")
+    print("5 - Display current balance")
     print("6 - Display menu")
 
 
