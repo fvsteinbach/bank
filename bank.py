@@ -106,21 +106,26 @@ def get_deposit():
 
 
 def change_balance(account_list):
-    index = get_index(account_list)
-    operation = get_operation()
-    account = account_list[index]
-    if operation == 0:
-        menu()
-    if operation == 1:
-        balance = get_balance(account_list)
-        withdraw = get_withdraw()
-        if withdraw < balance:
-            make_withdraw(balance, withdraw, account)
-            return account_list
-    if operation == 2:
-        make_deposit(account)
-        return account_list
-    print('Invalid option, Try Again')
+    while True:
+        index = get_index(account_list)
+        print(index)
+        if index != -1:
+            operation = get_operation()
+            account = account_list[index]
+            if operation == 0:
+                menu()
+                break
+            if operation == 1:
+                balance = get_balance(account_list)
+                withdraw = get_withdraw()
+                if withdraw < balance:
+                    make_withdraw(balance, withdraw, account)
+                    return account_list
+            if operation == 2:
+                make_deposit(account)
+                return account_list
+            print('Invalid option, Try Again')
+        print('Invalid account')
     operation = get_operation()
 
 
