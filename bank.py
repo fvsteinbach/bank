@@ -176,7 +176,7 @@ def menu():
 
 def menu_reports():
     print("1 - Display all accounts")
-    print("2 - Display accounts with over U$D of balance")
+    print("2 - Display accounts with over U$D100 of balance")
 
 
 def run():
@@ -194,12 +194,15 @@ def run():
             elif option == 1:
                 menu_reports()
                 report = input("What reports do you wanna see? ")
-                if report == 1:
-                    display_accounts(account_list)
-                elif report == 2:
-                    accounts_over_100(account_list)
-                elif option != 1 and option != 2:
-                    print("\nInvalid Option\n")
+                if report.isdigit():
+                    report = int(report)
+                    if report == 1:
+                        print(account_list)
+                        display_accounts(account_list)
+                    elif report == 2:
+                        accounts_over_100(account_list)
+                    elif option != 1 and option != 2:
+                        print("\nInvalid Option\n")
             elif option == 2:
                 add_account(account_list)
             elif option == 3:

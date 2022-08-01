@@ -2,3 +2,4 @@ fernando steinbach; 1; 123.0
 danille cardoso; 2; 3232.0
 laura de andrade steinbach; 3; 3232.0
 fernando vinciius; 4; 2000000.0
+vinicius de andrade; 5; 22.0
