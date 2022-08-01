@@ -21,6 +21,12 @@ def display_accounts(account_list):
         print(f'The account number is: {account[1]}')
 
 
+def accounts_over_100(account_list):
+    for account in account_list:
+        if account[2] > 100:
+            print(account)
+
+
 def save_all(account_list):
     with open('accounts.txt', 'w') as accounts:
         for account in account_list:
@@ -168,6 +174,11 @@ def menu():
     print("6 - Display menu")
 
 
+def menu_reports():
+    print("1 - Display all accounts")
+    print("2 - Display accounts with over U$D of balance")
+
+
 def run():
     frango = get_all()
     account_list = frango
@@ -181,7 +192,14 @@ def run():
                 print("Goodbye!")
                 break
             elif option == 1:
-                display_accounts(account_list)
+                menu_reports()
+                report = input("What reports do you wanna see? ")
+                if report == 1:
+                    display_accounts(account_list)
+                elif report == 2:
+                    accounts_over_100(account_list)
+                elif option != 1 and option != 2:
+                    print("\nInvalid Option\n")
             elif option == 2:
                 add_account(account_list)
             elif option == 3:
