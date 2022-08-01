@@ -61,8 +61,13 @@ def remove_account(account_list):
     while True:
         index = get_index(account_list)
         if index != -1:
-            del(account_list[index])
-            print('Account deleted')
+            print('Confirm your account number: ')
+            balance = get_balance(account_list)
+            if balance <= 0:
+                del(account_list[index])
+                print('Account deleted')
+                break
+            print('You still have money in your account, you must withdraw it in order to delete the account.')
             break
         print('Account not found, try again!')
     return account_list
