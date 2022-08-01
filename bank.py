@@ -1,5 +1,6 @@
 account_list = []
 
+
 def get_all():
     account_list = []
     with open('accounts.txt', 'r') as accounts:
@@ -125,21 +126,22 @@ def change_balance(account_list):
                     make_withdraw(balance, withdraw, account)
                     return account_list
             if operation == 2:
-                make_deposit(account)
+                balance = get_balance(account_list)
+                deposit = get_deposit()
+                make_deposit(account, deposit, balance)
                 return account_list
             print('Invalid option, Try Again')
         print('Invalid account')
     operation = get_operation()
 
 
-def make_deposit(account):
-    balance = get_balance(account_list)
-    deposit = get_deposit()
+def make_deposit(account, deposit, balance):
     new_balance = balance + deposit
     account.pop(2)
     account.insert(2, new_balance)
     print(account)
     return account_list
+
 
 def make_withdraw(balance, withdraw, account):
     new_balance = balance - withdraw
