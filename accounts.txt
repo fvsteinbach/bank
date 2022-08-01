@@ -1,6 +1,0 @@
-fernando vinicius; 2; 999.0
-vinicius de andrade; 9872; 32.0
-danille cardoso; 321; 3213.0
-fernando steinbach; 23; 0.0
-luis migue; 10; 232.0
-t rex; 400; 9812.0

@@ -74,7 +74,7 @@ def remove_account(account_list):
 
 
 def get_number():
-    acc_number = int(input('Enter the Account Number or Press 0 to go back to menu: '))
+    acc_number = int(input('Enter the Account Number'))
     return acc_number
 
 
@@ -85,6 +85,8 @@ def get_index(account_list):
         if account[1] == acc_number:
             return index
         index += 1
+    if account_list == []:
+        print("No accounts were found. Try to add one first.")
     return -1
 
 
