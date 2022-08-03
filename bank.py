@@ -166,7 +166,7 @@ def make_withdraw(balance, withdraw, account):
 
 def menu():
     print("0 - Exit")
-    print("1 - Display accounts owners")
+    print("1 - Display accounts numbers")
     print("2 - Add account")
     print("3 - Remove account by number")
     print("4 - Change balance")
