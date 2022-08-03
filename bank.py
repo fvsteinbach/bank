@@ -197,7 +197,6 @@ def run():
                 if report.isdigit():
                     report = int(report)
                     if report == 1:
-                        print(account_list)
                         display_accounts(account_list)
                     elif report == 2:
                         accounts_over_100(account_list)
