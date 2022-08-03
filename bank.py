@@ -80,7 +80,7 @@ def remove_account(account_list):
 
 
 def get_number():
-    acc_number = int(input('Enter the Account Number'))
+    acc_number = int(input('Enter the Account Number: '))
     return acc_number
 
 
