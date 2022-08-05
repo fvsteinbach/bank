@@ -159,7 +159,6 @@ def make_withdraw(balance, withdraw, account):
     new_balance = balance - withdraw
     account.pop(2)
     account.insert(2, new_balance)
-    print(account)
     return account_list
 
 
