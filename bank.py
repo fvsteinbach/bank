@@ -125,7 +125,6 @@ def get_deposit():
 def change_balance(account_list):
     while True:
         index = get_index(account_list)
-        print(index)
         if index != -1:
             operation = get_operation()
             account = account_list[index]
