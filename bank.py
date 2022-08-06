@@ -24,7 +24,8 @@ def display_accounts(account_list):
 
 def accounts_over_100(account_list):
     for account in account_list:
-        if account[2] > 100:
+        account_balance = account[2]
+        if account_balance > 100:
             print(account)
 
 
