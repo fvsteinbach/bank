@@ -214,7 +214,7 @@ def run():
                 menu()
             elif option == 7:
                 get_acc_numbers(account_list)
-            if option != 0 and option != 1 and option != 2 and option != 3 and option != 4 and option != 5 and option != 6 and option != 7 and option != 8:
+            else:
                 print("\nInvalid Option\n")
                 menu()
 
