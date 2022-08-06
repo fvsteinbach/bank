@@ -1,5 +1,6 @@
 account_list = []
 
+#opens the file and updates the account_list list with the data on the txt file
 
 def get_all():
     account_list = []
