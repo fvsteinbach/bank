@@ -16,7 +16,7 @@ def get_all():
             line = accounts.readline()
     return account_list
 
-
+#
 def display_accounts(account_list):
     for account in account_list:
         print(f'The account number is: {account[1]}')
