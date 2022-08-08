@@ -1,3 +1,6 @@
+from email import message
+
+
 account_list = []
 
 #opens the file and updates the account_list list with the data on the txt file
@@ -124,6 +127,10 @@ def get_deposit():
     return deposit
 
 
+def get_message(message):
+    user_input = int(input(message))
+    return user_input
+
 def change_balance(account_list):
     while True:
         index = get_index(account_list)
@@ -213,6 +220,8 @@ def run():
                 menu()
             elif option == 7:
                 get_acc_numbers(account_list)
+            elif option == 8:
+                get_message('Type in your account number')
             else:
                 print("\nInvalid Option\n")
                 menu()
