@@ -180,8 +180,7 @@ def menu_reports():
 
 
 def run():
-    frango = get_all()
-    account_list = frango
+    account_list = get_all()
     menu()
     while True:
         option = input("\nSelect a menu option: ")
