@@ -31,7 +31,7 @@ def accounts_over_100(account_list):
         if account_balance > 100:
             print(account)
 
-
+#function that only runs when the program ends. It opens the txt file, gets the list of accounts and writes
 def save_all(account_list):
     with open('accounts.txt', 'w') as accounts:
         for account in account_list:
