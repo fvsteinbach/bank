@@ -131,6 +131,7 @@ def get_message(message):
     user_input = int(input(message))
     return user_input
 
+#Function that uses the index of the account provided, in the account list, and changes the 3º position aka balance of the list aka account to the new balance.
 def change_balance(account_list):
     while True:
         index = get_index(account_list)
