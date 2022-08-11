@@ -156,7 +156,7 @@ def change_balance(account_list):
         print('Invalid account')
     operation = get_operation()
 
-
+#function that removes the 3º element on the list aka as balance, and then adds a new element also on the 3º position with the new balance
 def make_deposit(account, deposit, balance):
     new_balance = balance + deposit
     account.pop(2)
