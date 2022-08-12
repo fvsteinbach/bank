@@ -171,7 +171,7 @@ def make_withdraw(balance, withdraw, account):
     account.insert(2, new_balance)
     return account_list
 
-
+#prints all tptions avaiable
 def menu():
     print("0 - Exit")
     print("1 - Display accounts numbers")
