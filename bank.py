@@ -181,7 +181,7 @@ def menu():
     print("5 - Display current balance")
     print("6 - Display menu")
 
-
+#prints the options of accounts that can be displayed
 def menu_reports():
     print("1 - Display all accounts")
     print("2 - Display accounts with over U$D100 of balance")
